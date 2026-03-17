@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+
+  tasks:
+
+    - name: Install core package via brew casks
+      community.general.homebrew_cask:
+        name: "{{ item }}"
+      ignore_errors: yes
+      with_items:
+        #- docker
+        #- figma
+        #- iterm2
+        - visual-studio-code
+        #- tuple
+
+    - name: Add extensions
+      ansible.builtin.shell:
+        cmd: code --install-extension "{{ item }}"
+        executable: /bin/bash
+      with_items:
+        - redhat.ansible
+        - marcostazi.vs-code-drupal

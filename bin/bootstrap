@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Install brew
+# https://brew.sh
+
+# Install from shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Initial configuration
+echo >> ~/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv zsh)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+
+
+# Installing pipx
+# https://pipx.pypa.io/stable/#install-pipx
+brew install pipx
+pipx ensurepath
+sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
+
+
+# Install Ansible
+# https://docs.ansible.com/projects/ansible/latest/installation_guide/intro_installation.html#control-node-requirements
+pipx install --include-deps ansible
+
+ansible-playbook -c local devEnvironment.yml

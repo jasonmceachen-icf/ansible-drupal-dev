@@ -1,0 +1,15 @@
+---
+- name: Bootstrap macOS
+  hosts: macos
+  gather_facts: false
+  tasks:
+    - name: Install Xcode command line tools
+      ansible.builtin.command: xcode-select --install
+      failed_when: false
+      changed_when: true
+
+    - name: Install Homebrew
+      ansible.builtin.shell: |
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      args:
+        creates: /opt/homebrew/bin/brew
