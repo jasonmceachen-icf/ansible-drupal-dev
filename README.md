@@ -1,17 +1,22 @@
 # Installs a set of Drupal development tools on your Mac
 
-UNTESTED!!!
+## NOTE
+
+LIGHTLY TESTED!!!
 
 This was built behind me as I installed development tools on my macbook.
 
-## Note
+## What it does
 
+
+Running the script in bin/bootstrap will install homebrew, use homebrew to install pipx, and use pipx to install Ansbile.
+Once that is complete, it runs a playbook which additionally installs
+* Lando
+* VSCode with Drupal related extensions
+* git ssh commit signing
 
 
 ## Installation
-
-Running the script in bin/bootstrap will install homebrew, use homebrew to install pipx, and use pipx to install Ansbile.
-Once that is complete, it runs a playbook which additionally installs Lando and VSCode with Drupal related extensions.
 
 Start the installer:
 ```bash
@@ -43,3 +48,5 @@ extensions.
 [Get Lando](https://lando.dev/download)
 
 [How to Use Ansible to Manage Homebrew Packages on macOS]( https://oneuptime.com/blog/post/2026-02-21-ansible-manage-homebrew-packages-macos/view)
+
+[signing commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
