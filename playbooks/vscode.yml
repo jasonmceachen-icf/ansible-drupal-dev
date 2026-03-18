@@ -31,4 +31,14 @@
         - devsense.phptools-vscode
         - bradlc.vscode-tailwindcss
         - marcostazi.vs-code-drupal
-        #- xdebug/vscode-php-debug
+        - sanderronde.phpstan-vscode
+        - xdebug.php-debug
+        - DEVSENSE.composer-php-vscode
+        - mblode.twig-language-2
+        - redhat.vscode-yaml
+        - vscode.markdown-language-features
+        - andrewdavidblum.drupal-smart-snippets
+        - nadim-vscode.twig-code-snippets
+        - davis-are.drupal-sdc-helper
+
+

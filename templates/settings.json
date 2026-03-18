@@ -1,0 +1,28 @@
+{
+  
+  "emmet.includeLanguages": {
+    "_comment": "configure the IDE's built-in HTML parser (called Emmet) to assist you with completion suggestions for Twig files",
+    "twig": "html"
+  },
+
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.formatOnPaste": true,
+  "editor.renderWhitespace": "boundary",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "telemetry.telemetryLevel": "off",
+
+  "files.associations": {
+    "*.php": "php",
+    "*.engine": "php",
+    "*.theme": "php",
+    "*.install": "php",
+    "*.inc": "php",
+    "*.make": "php",
+    "*.module": "php",
+    "*.profile": "php",
+    "*.test": "php",
+    "*.info": "ini",
+  },  
+  
+}

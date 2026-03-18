@@ -1,0 +1,8 @@
+# The simplest possible form of a `phpstan.neon` file
+# placed in the root directory of your codebase
+
+parameters:
+  level: max
+  paths:
+    - web/modules/custom
+    
