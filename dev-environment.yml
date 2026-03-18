@@ -1,4 +1,4 @@
 ---
-- import_playbook: playbooks/bootstrapMacOS.yml
+- import_playbook: playbooks/bootstrap-mac-os.yml
 - import_playbook: playbooks/vscode.yml
 - import_playbook: playbooks/lando.yml

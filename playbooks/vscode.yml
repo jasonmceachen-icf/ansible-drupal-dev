@@ -1,23 +1,34 @@
 ---
-- hosts: localhost
+- name: VScode and extensions
+  hosts: localhost
 
   tasks:
-
-    - name: Install core package via brew casks
+    - name: Install core vscode packages via brew casks
       community.general.homebrew_cask:
         name: "{{ item }}"
-      ignore_errors: yes
       with_items:
-        #- docker
-        #- figma
-        #- iterm2
         - visual-studio-code
-        #- tuple
 
-    - name: Add extensions
+    - name: Install ansible-dev-tools using pipx
+      ansible.builtin.pip:
+        name: ansible-dev-tools
+        executable: pipx
+        state: present
+        # Optional: use a specific version
+        # version: 25.8.4.dev6
+
+    - name: Install Drupal supporting vscode extensions
       ansible.builtin.shell:
         cmd: code --install-extension "{{ item }}"
         executable: /bin/bash
       with_items:
+        - editorconfig.editorconfig
         - redhat.ansible
+        - trunk.io
+        - vscode.php-language-features
+        - valeryanm.vscode-phpsab
+        - bmewburn.vscode-intelephense-client
+        - devsense.phptools-vscode
+        - bradlc.vscode-tailwindcss
         - marcostazi.vs-code-drupal
+        #- xdebug/vscode-php-debug

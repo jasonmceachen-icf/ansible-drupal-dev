@@ -1,15 +1,15 @@
 ---
-- name: Lando
-  hosts: all
+- name: Lando DevOps framework
+  hosts: localhost
 
   tasks:
-    - name: Download the lando installer
+    - name: Download the Lando installer
       ansible.builtin.get_url:
         url: https://get.lando.dev/setup-lando.sh
         dest: /tmp/setup-lando.sh
         mode: '0755' # Make it executable
 
-    - name: Run installer
+    - name: Run the Lando installer
       ansible.builtin.shell:
         cmd: /tmp/setup-lando.sh
         executable: /bin/bash

@@ -22,4 +22,4 @@ sudo pipx ensurepath --global # optional to allow pipx actions with --global arg
 # https://docs.ansible.com/projects/ansible/latest/installation_guide/intro_installation.html#control-node-requirements
 pipx install --include-deps ansible
 
-ansible-playbook -c local devEnvironment.yml
+ansible-playbook -c local dev-environment.yml

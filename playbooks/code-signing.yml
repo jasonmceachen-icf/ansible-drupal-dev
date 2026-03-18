@@ -1,0 +1,49 @@
+---
+- name: Enable code signing by creating an ssh key
+  hosts: localhost
+  connection: local
+  
+  tasks:
+  ### Using an existing key ###
+  - name: Retrieve ssh ed25519 key files list
+    ansible.builtin.find:
+      paths: ~/.ssh
+      patterns: "*id_ed25519.pub"
+      recurse: false
+    register: find_results  
+
+  - name: Confirmation which found key to use
+    ansible.builtin.pause:
+      prompt: "Use the key {{ find_results.files.0.path }} to sign your code commits? y/N: "
+    register: confirm_input
+    when: find_results.files | length > 0
+
+  - name: Configure Git to use generated key to sign all repository commits and tags
+    ansible.builtin.shell: |
+      git config --global gpg.format ssh
+      git config --global user.signingkey {{ find_results.files.0.path }}
+    when: ((find_results.files | length) > 0) and ((confirm_input.user_input | lower) == 'y')
+
+  ### Generating a new key to use ###
+  - name: Confirm they want a key generated
+    ansible.builtin.pause:
+      prompt: "Generate a new SSH key to sign your code commits? y/N: "
+    register: generate_key_input
+    when: (not find_results.files) or ((confirm_input.user_input | lower) != 'y')
+
+  - name: Generate an OpenSSH keypair
+    community.crypto.openssh_keypair:
+      path: ~/.ssh/ansible_id_ed25519
+      type: ed25519
+      comment: ansible-generated-key
+      state: present
+      # Optional: Add a passphrase for extra security
+      # passphrase: "mysecretpassphrase" 
+    register: generated_key
+    when: not (generate_key_input.skipped is defined) and ((generate_key_input.user_input | lower) == 'y')
+
+  - name: Configure Git to use generated key to sign all repository commits and tags
+    ansible.builtin.shell: |
+      git config --global gpg.format ssh
+      # git config --global user.signingkey {{ generated_key.filename }}
+    when: generated_key.filename is defined
