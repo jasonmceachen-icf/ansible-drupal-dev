@@ -49,6 +49,12 @@ Ansible can only do so much, here's where you the user come in!
 
 - [ ] Get the updated prompt by running `source ~/.zshrc`
 
+- [ ] Set your git username and email address
+    ```bash
+    git config --global user.name "John Doe"
+    git config --global user.email johndoe@example.com
+    ```
+
 ## Updates
 
 You can run the playbooks individually or in the collected dev-environment playbook to update all packages and extensions.
