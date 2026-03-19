@@ -48,8 +48,7 @@ Ansible can only do so much, here's where you the user come in!
 
 ## Updates
 
-You can run the playbooks individually or in the collected devEnvironment to update all packages and
-extensions.
+You can run the playbooks individually or in the collected dev-environment playbook to update all packages and extensions.
 
 ## Bibliography
 
