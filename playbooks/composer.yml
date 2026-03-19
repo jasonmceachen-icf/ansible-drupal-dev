@@ -1,0 +1,15 @@
+---
+- name: Install composer globally and put it in the PATH
+  hosts: localhost
+
+  tasks:
+    - name: Install composer globally using homebrew
+      community.general.homebrew:
+        name: composer
+        state: present
+
+    - name: Append the zshrc template file to the users .zshrc
+      ansible.builtin.blockinfile:
+        path: ~/.zshrc
+        block: export PATH="$PATH:"$(composer global config --absolute bin-dir --quiet)
+        create: true
