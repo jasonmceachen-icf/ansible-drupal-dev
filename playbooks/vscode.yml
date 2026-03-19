@@ -14,31 +14,32 @@
         name: ansible-dev-tools
         executable: pipx
         state: present
-        # Optional: use a specific version
-        # version: 25.8.4.dev6
 
     - name: Install Drupal supporting vscode extensions
       ansible.builtin.shell:
         cmd: code --install-extension "{{ item }}"
         executable: /bin/bash
       with_items:
+        # General editor extensions
         - editorconfig.editorconfig
+        - vscode.markdown-language-features
         - redhat.ansible
         - trunk.io
+        - redhat.vscode-yaml
+        - vscode-icons-team.vscode-icons
+        # PHP extensions
         - vscode.php-language-features
         - valeryanm.vscode-phpsab
         - bmewburn.vscode-intelephense-client
         - devsense.phptools-vscode
-        - bradlc.vscode-tailwindcss
-        - marcostazi.vs-code-drupal
         - sanderronde.phpstan-vscode
         - xdebug.php-debug
         - DEVSENSE.composer-php-vscode
-        - mblode.twig-language-2
-        - redhat.vscode-yaml
-        - vscode.markdown-language-features
+        # Drupal extensions
+        - marcostazi.vs-code-drupal
         - andrewdavidblum.drupal-smart-snippets
-        - nadim-vscode.twig-code-snippets
         - davis-are.drupal-sdc-helper
-
-
+        # Drupal theming extensions
+        - bradlc.vscode-tailwindcss
+        - nadim-vscode.twig-code-snippets
+        - mblode.twig-language-2
