@@ -1,0 +1,15 @@
+---
+# @see https://dev.to/cassidoo/customizing-my-zsh-prompt-3417
+- name: Better zshrc shell prompt
+  hosts: localhost
+
+  tasks:
+  - name: Append the zshrc template file to the users .zshrc
+    ansible.builtin.blockinfile:
+      path: ~/.zshrc
+      block: "{{ lookup('file', '../templates/zshrc') }}"
+      create: true
+
+  - name: Notify the user to source the new .zshrc file
+    ansible.builtin.debug:
+      msg: Use ```source ~/.zshrc``` to start using your new shell prompt now
