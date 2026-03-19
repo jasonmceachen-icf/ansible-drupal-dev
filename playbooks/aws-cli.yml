@@ -1,9 +1,10 @@
 ---
+# @see https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 - name: AWS cli installer
   hosts: localhost
 
   tasks:
-    - name: Download the awscli2 installer
+    - name: Download the latest awscli2 installer
       ansible.builtin.get_url:
         url: https://awscli.amazonaws.com/AWSCLIV2.pkg
         dest: /tmp/AWSCLIV2.pkg
@@ -13,3 +14,8 @@
       become: true
       ansible.builtin.command:
         cmd: installer -pkg /tmp/AWSCLIV2.pkg -target /
+
+    - name: Verify the installation worked
+      ansible.builtin.command:
+        cmd: |
+          which aws
