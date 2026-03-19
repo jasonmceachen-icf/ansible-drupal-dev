@@ -46,6 +46,6 @@
   - name: Configure Git to use generated key to sign all repository commits and tags
     ansible.builtin.shell: |
       git config --global gpg.format ssh
-      # git config --global user.signingkey {{ generated_key.filename }}
+      git config --global user.signingkey {{ generated_key.filename }}
       git config --global commit.gpgsign true
     when: generated_key.filename is defined
