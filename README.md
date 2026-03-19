@@ -14,6 +14,9 @@ Once that is complete, it runs a playbook which additionally installs
 - Lando
 - VSCode with Drupal related extensions
 - git ssh commit signing
+- aws cli
+- passwordless sudo
+- Informative zsh prompt
 
 ## Installation
 
