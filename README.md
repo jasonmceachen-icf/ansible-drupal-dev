@@ -18,6 +18,8 @@ Once that is complete, it runs a playbook which additionally installs
 
 ## Installation
 
+*Note* You will need to enter your password for the first run so you can become a passwordless sudo user
+
 Start the installer:
 ```bash
 bin/bootstrap

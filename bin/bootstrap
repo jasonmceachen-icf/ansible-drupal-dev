@@ -20,6 +20,6 @@ sudo pipx ensurepath --global # optional to allow pipx actions with --global arg
 
 # Install Ansible
 # https://docs.ansible.com/projects/ansible/latest/installation_guide/intro_installation.html#control-node-requirements
-pipx install --include-deps ansible
+pipx install --include-deps ansible ansible-lint
 
-ansible-playbook -c local dev-environment.yml
+ansible-playbook -c local dev-environment.yml --ask-become-pass

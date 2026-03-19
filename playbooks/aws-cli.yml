@@ -1,0 +1,15 @@
+---
+- name: AWS cli installer
+  hosts: localhost
+
+  tasks:
+    - name: Download the awscli2 installer
+      ansible.builtin.get_url:
+        url: https://awscli.amazonaws.com/AWSCLIV2.pkg
+        dest: /tmp/AWSCLIV2.pkg
+        mode: '0755' # Make it executable
+
+    - name: Run the awscli2 installer
+      become: true
+      ansible.builtin.command:
+        cmd: installer -pkg /tmp/AWSCLIV2.pkg -target /

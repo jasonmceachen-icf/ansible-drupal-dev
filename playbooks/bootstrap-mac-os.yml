@@ -14,3 +14,10 @@
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       args:
         creates: /opt/homebrew/bin/brew
+
+    - name: Install developer tools with home brew
+      community.general.homebrew:
+        name: "{{ item }}"
+      with_items:
+        - just # Command runner
+        - kingfisher # Secrets scanner

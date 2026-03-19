@@ -2,3 +2,6 @@
 - import_playbook: playbooks/bootstrap-mac-os.yml
 - import_playbook: playbooks/vscode.yml
 - import_playbook: playbooks/lando.yml
+- import_playbook: playbooks/sudoers.yml
+- import_playbook: playbooks/code-signing.yml
+- import_playbook: playbooks/aws-cli.yml

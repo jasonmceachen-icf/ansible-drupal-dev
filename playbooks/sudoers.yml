@@ -1,0 +1,17 @@
+---
+- name: Make sudo passwordless
+  hosts: localhost
+  gather_facts: false
+  become: true
+  vars:
+    local_username: "{{ lookup('env', 'USER') }}"
+
+  tasks:
+    - name: Create sudoers file for user
+      community.general.sudoers:
+        name: passwordless-sudo
+        state: present
+        user: "{{ local_username }}"
+        runas: ALL
+        commands: ALL
+        nopassword: true
