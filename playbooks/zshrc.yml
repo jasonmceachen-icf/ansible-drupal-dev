@@ -9,6 +9,8 @@
       path: ~/.zshrc
       block: "{{ lookup('file', '../templates/zshrc') }}"
       create: true
+      marker: "# {mark} ANSIBLE MANAGED PROMPT STYLING BLOCK"
+
 
   - name: Notify the user to source the new .zshrc file
     ansible.builtin.debug:

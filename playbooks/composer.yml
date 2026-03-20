@@ -13,3 +13,4 @@
         path: ~/.zshrc
         block: export PATH="$PATH:"$(composer global config --absolute bin-dir --quiet)
         create: true
+        marker: "# {mark} ANSIBLE MANAGED COMPOSER PATH BLOCK"
