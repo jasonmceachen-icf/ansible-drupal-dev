@@ -5,3 +5,4 @@
 - import_playbook: playbooks/sudoers.yml
 - import_playbook: playbooks/code-signing.yml
 - import_playbook: playbooks/aws-cli.yml
+- import_playbook: playbooks/mysql-workbench.yml

@@ -1,0 +1,12 @@
+---
+- name: Install MySQL Workbench on macOS
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Install MySQL Workbench using Homebrew Cask
+      community.general.homebrew_cask:
+        name: mysqlworkbench
+        state: present
+        
