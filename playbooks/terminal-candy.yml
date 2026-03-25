@@ -1,0 +1,26 @@
+---
+# @see https://medium.com/@Smyekh/terminal-joy-how-fortune-cowsay-figlet-and-lolcat-add-life-to-my-developer-workflow-b5b1c6b10474
+- name: Because the command line should be fun
+  hosts: localhost
+
+  tasks:
+    - name: Install packages via brew that make the terminal more fun
+      community.general.homebrew:
+        name: "{{ item }}"
+      with_items:
+        - fortune 
+        - cowsay 
+        - figlet 
+        - lolcat
+
+
+    - name: Append a welcome message to file to the users .zshrc
+      ansible.builtin.blockinfile:
+        path: ~/.zshrc
+        block: fortune|cowsay|lolcat
+        create: true
+        marker: "# {mark} ANSIBLE MANAGED TERMINAL WELCOME MESSAGE BLOCK"
+
+    - name: Notify the user to source the new .zshrc file
+      ansible.builtin.debug:
+        msg: Use ```source ~/.zshrc``` to start using your new shell prompt now
