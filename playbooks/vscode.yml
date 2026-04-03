@@ -27,6 +27,7 @@
         - trunk.io
         - redhat.vscode-yaml
         - vscode-icons-team.vscode-icons
+        - donjayamanne.githistory
         # PHP extensions
         - vscode.php-language-features
         - valeryanm.vscode-phpsab
@@ -43,3 +44,5 @@
         - bradlc.vscode-tailwindcss
         - nadim-vscode.twig-code-snippets
         - mblode.twig-language-2
+        # Workflow extensions
+        - atlassian.atlascode
