@@ -1,0 +1,9 @@
+# @see https://nektosact.com/installation/homebrew.html
+- name: Act cli installer for GitHub actions local testing
+  hosts: localhost
+
+  tasks:
+    - name: Install act cli via brew
+      community.general.homebrew:
+        name: act
+

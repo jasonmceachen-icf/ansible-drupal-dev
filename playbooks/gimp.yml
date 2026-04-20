@@ -1,0 +1,9 @@
+---
+- name: Gimp image editor
+  hosts: localhost
+
+  tasks:
+    - name: Install Gimp
+      community.general.homebrew:
+        name: gimp
+        state: present

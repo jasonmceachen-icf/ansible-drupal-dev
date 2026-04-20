@@ -1,0 +1,8 @@
+# @see https://cli.github.com/
+- name: GitHub CLI
+  hosts: localhost
+
+  tasks:
+    - name: Install GitHub CLI via brew
+      community.general.homebrew:
+        name: gh
