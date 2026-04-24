@@ -1,0 +1,26 @@
+---
+# @see https://code.claude.com/docs/en/terminal-guide
+- name: Claude Co-Work installer
+  hosts: localhost
+
+  tasks:
+    - name: Install Claude Desktop using Homebrew Cask
+      community.general.homebrew_cask:
+        name: claude
+        state: present
+
+    - name: Download the latest Claude Code installer
+      ansible.builtin.get_url:
+        url: https://claude.ai/install.sh
+        dest: /tmp/installClaudeCode.sh
+        mode: '0755' # Make it executable
+
+    - name: Run the Claude Code installer
+      become: true
+      ansible.builtin.command:
+        cmd: bash /tmp/installClaudeCode.sh
+
+    - name: Verify the installation worked
+      ansible.builtin.command:
+        cmd: |
+          which claude
