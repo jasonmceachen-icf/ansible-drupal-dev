@@ -1,0 +1,13 @@
+# @see https://flameshot.org/#download and https://formulae.brew.sh/cask/flameshot
+- name: Flameshot screenshot editor
+  hosts: localhost
+
+  tasks:
+    - name: Install flameshot via brew
+      community.general.homebrew:
+        name: flameshot
+
+    - name: Notify the user about security settings and updates
+      ansible.builtin.debug:
+        msg: Security changes may be necessary - see https://github.com/flameshot-org/flameshot/issues/4125#issuecomment-3433276495
+        
