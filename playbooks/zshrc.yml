@@ -4,14 +4,15 @@
   hosts: localhost
 
   tasks:
-  - name: Append the zshrc template file to the users .zshrc
-    ansible.builtin.blockinfile:
-      path: ~/.zshrc
-      block: "{{ lookup('file', '../templates/zshrc') }}"
-      create: true
-      marker: "# {mark} ANSIBLE MANAGED PROMPT STYLING BLOCK"
+    - name: Append the zshrc template file to the users .zshrc
+      ansible.builtin.blockinfile:
+        path: ~/.zshrc
+        block: "{{ lookup('file', '../templates/zshrc') }}"
+        create: true
+        mode: "0644"
+        marker: "# {mark} ANSIBLE MANAGED PROMPT STYLING BLOCK"
 
 
-  - name: Notify the user to source the new .zshrc file
-    ansible.builtin.debug:
-      msg: Use ```source ~/.zshrc``` to start using your new shell prompt now
+    - name: Notify the user to source the new .zshrc file
+      ansible.builtin.debug:
+        msg: Use ```source ~/.zshrc``` to start using your new shell prompt now
